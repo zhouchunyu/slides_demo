@@ -9,7 +9,7 @@ allButtons.each(function(index, btn){
 var n = 0;
 var size = allButtons.length;
 trigger_button(allButtons, n, size);
-setInterval(() => {
+var timeId = setInterval(() => {
   n += 1;
   trigger_button(allButtons, n, size);
 }, 1000);
@@ -19,3 +19,15 @@ function trigger_button(buttons, n, size) {
   buttons.removeClass('red');
   buttons.eq(n%size).addClass('red');
 }
+
+$('.window').on('mouseenter', function(){
+  window.clearInterval(timeId);
+})
+
+
+$('.window').on('mouseleave', function(){
+  timeId = setInterval(() => {
+    n += 1;
+    trigger_button(allButtons, n, size);
+  }, 1000);  
+})
