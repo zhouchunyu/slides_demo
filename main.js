@@ -16,8 +16,7 @@ var timeId = setInterval(() => {
 
 function trigger_button(buttons, n, size) {
   buttons.eq(n%size).trigger('click');
-  buttons.removeClass('red');
-  buttons.eq(n%size).addClass('red');
+  buttons.eq(n%size).addClass('red').siblings().removeClass('red');
 }
 
 $('.window').on('mouseenter', function(){
