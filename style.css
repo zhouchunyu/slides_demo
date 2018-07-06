@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.images {
+  display: flex;
+  align-items: flex-start;
+  border: 1px green solid;
+  transition: all 0.5s;
+}
+
+.images {
+  display: flex;
+  align-items: flex-start;
+  border: 1px green solid;
+  transition: all 0.5s;
+}
+
+.images > img {
+  height: auto;
+}
+
+.window{
+  border: 10px blue solid;
+  width: 300px;
+  overflow: hidden;
+}
+
+.buttons > button.red{
+  border: 1px red solid;
+}
