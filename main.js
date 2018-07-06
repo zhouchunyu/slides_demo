@@ -1,22 +1,24 @@
-allButtons = $(".buttons > button")
-allButtons.each(function(index, btn){
-  $(btn).on("click", function(event){
-    distance = $(event.currentTarget).index() * 300;
-    $('.images').css({transform: `translateX(-${distance}px)`});
-  });
-});
-
+allButtons = $(".buttons > button");
 var n = 0;
 var size = allButtons.length;
+allButtons.each(function(index, btn){
+  $(btn).on("click", function(event){
+    btn = $(event.currentTarget)
+    n = btn.index()
+    distance = btn.index() * 300;
+    $('.images').css({transform: `translateX(-${distance}px)`});
+    btn.addClass('red').siblings().removeClass('red')
+  });
+});
 trigger_button(allButtons, n, size);
+
 var timeId = setInterval(() => {
   n += 1;
   trigger_button(allButtons, n, size);
-}, 1000);
+}, 2000);
 
 function trigger_button(buttons, n, size) {
   buttons.eq(n%size).trigger('click');
-  buttons.eq(n%size).addClass('red').siblings().removeClass('red');
 }
 
 $('.window').on('mouseenter', function(){
@@ -28,5 +30,5 @@ $('.window').on('mouseleave', function(){
   timeId = setInterval(() => {
     n += 1;
     trigger_button(allButtons, n, size);
-  }, 1000);  
+  }, 2000);  
 })
